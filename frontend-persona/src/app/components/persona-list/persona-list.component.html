@@ -1,0 +1,21 @@
+<nav>
+  <a routerLink="/persone">Lista Persone</a> |
+  <a routerLink="/persone/add">Aggiungi Persona</a>
+</nav>
+
+<hr />
+
+<div *ngIf="persone && persone.length > 0; else noPeople">
+  <ul>
+    <li *ngFor="let persona of persone">
+      <span>{{ persona.id }} -- {{ persona.nome }} -- {{ persona.cognome }} -- {{ persona.eta }}</span>
+      <a [routerLink]="['/persona', persona.id]" class="btn btn-info">Dettagli</a>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noPeople>
+  <div>
+    Nessuna persona trovata.
+  </div>
+</ng-template>

@@ -1,0 +1,6 @@
+com\example\ProgettoPersona\service\PersonaService.class
+com\example\ProgettoPersona\config\WebConfig.class
+com\example\ProgettoPersona\ProgettoPersonaApplication.class
+com\example\ProgettoPersona\model\Persona.class
+com\example\ProgettoPersona\repository\PersonaRepository.class
+com\example\ProgettoPersona\controller\PersonaController.class
