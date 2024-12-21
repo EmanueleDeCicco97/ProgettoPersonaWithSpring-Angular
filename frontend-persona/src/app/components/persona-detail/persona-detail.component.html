@@ -1,28 +1,27 @@
 <div *ngIf="persona">
     <h2>Dettagli di {{ persona.nome }} {{ persona.cognome }}</h2>
-  
+
     <div *ngIf="!isEditing">
-     
+
       <p><strong>Nome:</strong> {{ persona.nome }}</p>
       <p><strong>Cognome:</strong> {{ persona.cognome }}</p>
       <p><strong>Età:</strong> {{ persona.eta }}</p>
-      <button (click)="toggleEdit()">Modifica</button>
+      <button (click)="toggleEdit()">Modifica</button>&nbsp;&nbsp;
       <button (click)="deletePersona()">Elimina</button>
     </div>
-  
+
     <div *ngIf="isEditing">
 
       <label for="nome">Nome:</label>
       <input [(ngModel)]="persona.nome" id="nome" />
-  
+
       <label for="cognome">Cognome:</label>
       <input [(ngModel)]="persona.cognome" id="cognome" />
-  
+
       <label for="eta">Età:</label>
       <input [(ngModel)]="persona.eta" id="eta" type="number" />
-  
-      <button (click)="savePersona()">Salva</button>
+
+      <button (click)="updatePersona()">Salva</button>
       <button (click)="toggleEdit()">Annulla</button>
     </div>
   </div>
-  

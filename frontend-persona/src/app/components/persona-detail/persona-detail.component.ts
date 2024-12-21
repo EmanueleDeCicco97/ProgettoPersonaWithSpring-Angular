@@ -37,7 +37,7 @@ export class PersonaDetailComponent implements OnInit {
     this.isEditing = !this.isEditing;
   }
 
-  savePersona(): void {
+  updatePersona(): void {
     if (this.persona) {
       this.personaService.updatePersona(this.persona.id, this.persona).subscribe({
         next: () => this.router.navigate(['/persone']),

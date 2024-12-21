@@ -8,8 +8,10 @@
 <div *ngIf="persone && persone.length > 0; else noPeople">
   <ul>
     <li *ngFor="let persona of persone">
-      <span>{{ persona.id }} -- {{ persona.nome }} -- {{ persona.cognome }} -- {{ persona.eta }}</span>
-      <a [routerLink]="['/persona', persona.id]" class="btn btn-info">Dettagli</a>
+      <span>{{ persona.id }} -- {{ persona.nome }} -- {{ persona.cognome }} -- {{ persona.eta }}</span>&nbsp;&nbsp;
+
+         <a [routerLink]="['/persona', persona.id]" class="btn btn-info">Dettagli</a>
+
     </li>
   </ul>
 </div>
