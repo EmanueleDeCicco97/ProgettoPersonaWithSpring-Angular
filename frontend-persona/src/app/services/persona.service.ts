@@ -13,8 +13,8 @@ export interface Persona {
   providedIn: 'root',
 })
 export class PersonaService {
-  private apiUrl = 'http://localhost:8080/api/persone'; // URL del tuo backend Spring
-
+  private apiUrl = 'http://localhost:8080/api/persone';
+  
   constructor(private http: HttpClient) {}
 
   getAllPersone(): Observable<Persona[]> {

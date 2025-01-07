@@ -22,7 +22,7 @@ export class PersonaListComponent implements OnInit {
 //    { id: 3, nome: 'Luca', cognome: 'Verdi', eta: 40 },
 //    { id: 4, nome: 'Anna', cognome: 'Neri', eta: 35 }
 //  ];
-  
+
 
   constructor(private http: HttpClient, private personaService: PersonaService) {}
 
@@ -32,7 +32,7 @@ export class PersonaListComponent implements OnInit {
 
   loadPersone(): void {
     this.personaService.getAllPersone().subscribe({
-      next: (data) => (this.persone = data),
+      next: (data) => (this.persone = data)
     });
   }
 }

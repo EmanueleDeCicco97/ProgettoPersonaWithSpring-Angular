@@ -19,8 +19,7 @@ export class PersonaAddComponent {
 
   addPersona(): void {
     this.personaService.createPersona(this.persona).subscribe({
-      next: () => this.router.navigate(['/persone']),
-      error: (err) => console.error('Errore nell\'aggiunta:', err),
+      next: () => this.router.navigate(['/persone'])
     });
   }
 }

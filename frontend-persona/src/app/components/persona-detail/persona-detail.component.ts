@@ -28,8 +28,7 @@ export class PersonaDetailComponent implements OnInit {
 
   loadPersona(id: number): void {
     this.personaService.getPersonaById(id).subscribe({
-      next: (data) => (this.persona = data),
-      error: (err) => console.error('Errore nel caricamento:', err),
+      next: (data) => (this.persona = data)
     });
   }
 
@@ -40,8 +39,7 @@ export class PersonaDetailComponent implements OnInit {
   updatePersona(): void {
     if (this.persona) {
       this.personaService.updatePersona(this.persona.id, this.persona).subscribe({
-        next: () => this.router.navigate(['/persone']),
-        error: (err) => console.error('Errore nel salvataggio:', err),
+        next: () => this.router.navigate(['/persone'])
       });
     }
   }
@@ -49,8 +47,7 @@ export class PersonaDetailComponent implements OnInit {
   deletePersona(): void {
     if (this.persona) {
       this.personaService.deletePersona(this.persona.id).subscribe({
-        next: () => this.router.navigate(['/persone']),
-        error: (err) => console.error('Errore nella cancellazione:', err),
+        next: () => this.router.navigate(['/persone'])
       });
     }
   }
