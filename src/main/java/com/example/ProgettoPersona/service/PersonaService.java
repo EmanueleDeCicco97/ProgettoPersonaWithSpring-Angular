@@ -6,20 +6,24 @@ import org.springframework.stereotype.Service;
 import com.example.ProgettoPersona.repository.PersonaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonaService {
 
-    @Autowired
     PersonaRepository personaRepository;
 
+    @Autowired
+    public PersonaService(PersonaRepository personaRepository) {
+        this.personaRepository = personaRepository;
+    }
 
     public List<Persona> getAll() {
         return personaRepository.findAll();
     }
 
-    public Persona getById(int id) {
-        return personaRepository.findById(id).orElseThrow(() -> new RuntimeException("Persona non trovata"));
+    public Optional<Persona> getById(int id) {
+        return personaRepository.findById(id);
     }
 
     public Persona create(Persona persona) {
@@ -27,11 +31,19 @@ public class PersonaService {
     }
 
     public Persona update(int id, Persona persona) {
-        Persona existingPersona = getById(id);
-        existingPersona.setNome(persona.getNome());
-        existingPersona.setCognome(persona.getCognome());
-        existingPersona.setEta(persona.getEta());
-        return personaRepository.save(existingPersona);
+        Optional<Persona> existingPersona = getById(id);
+
+        if (existingPersona.isPresent()) {
+            Persona updatedPersona = existingPersona.get();
+            updatedPersona.setNome(persona.getNome());
+            updatedPersona.setCognome(persona.getCognome());
+            updatedPersona.setEta(persona.getEta());
+            return personaRepository.save(updatedPersona);
+        } else {
+            return null;
+        }
+
+
     }
 
     public void delete(int id) {
