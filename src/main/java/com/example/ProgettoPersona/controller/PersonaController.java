@@ -2,6 +2,7 @@ package com.example.ProgettoPersona.controller;
 
 import com.example.ProgettoPersona.model.Persona;
 import com.example.ProgettoPersona.service.PersonaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,13 +31,13 @@ public class PersonaController {
     }
 
     @PostMapping
-    public ResponseEntity<Persona> createPersona(@RequestBody Persona persona) {
+    public ResponseEntity<Persona> createPersona(@RequestBody @Valid Persona persona) {
         Persona createdPersona = personaService.create(persona);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdPersona);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Persona> updatePersona(@PathVariable int id, @RequestBody Persona persona) {
+    public ResponseEntity<Persona> updatePersona(@PathVariable int id, @RequestBody @Valid Persona persona) {
         Persona updatedPersona = personaService.update(id, persona);
         return ResponseEntity.ok(updatedPersona);
     }
